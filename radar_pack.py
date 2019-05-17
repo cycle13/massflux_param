@@ -1,10 +1,10 @@
 """
-Turning radar PPIs into Cartesian grids.
+Compute massflux parametrisation from radar data using Kumar et al. 2015 paper.
 
-@title: radar_grids
+@title: radar_pack
 @author: Valentin Louf <valentin.louf@monash.edu>
 @institution: Monash University
-@date: 11/03/2019
+@date: 17/05/2019
 @version: 1
 
 .. autosummary::
@@ -93,10 +93,6 @@ if __name__ == '__main__':
     args = parser.parse_args()
     OUTPATH = args.outdir
     NCPU = args.ncpu
-
-    print("The start date is: " + start.strftime("%Y-%m-%d"))
-    print("The end date is: " + end.strftime("%Y-%m-%d"))
-    print(f"The input directory is {INPATH}\nThe output directory is {OUTPATH}.")
 
     fstein = sorted(glob.glob('/g/data/hj10/cpol_level_2/v2018/grid_150km_2500m/STEINER_ECHO_CLASSIFICATION/*.nc'))
     feth = sorted(glob.glob('/g/data/hj10/cpol_level_2/v2018/grid_150km_2500m/ECHO_TOP_HEIGHT/*.nc'))
